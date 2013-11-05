@@ -22,6 +22,24 @@
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"%@", responseObject);
+             NSArray *jsonDict = (NSArray *) responseObject;
+             NSLog (@"ARR %@", jsonDict);
+             NSDictionary *dictzero = [jsonDict objectAtIndex:0];
+             NSLog (@"DICTOUT %@", [dictzero objectForKey:@"Contact_ID"]);
+             
+             // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+             // [defaults setObject:firstName forKey:@"firstName"];
+             // NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"useremail"];
+              
+             // $_GET['format']
+             // $_POST['format']
+             
+             // GET
+             // list of parameters at the end of URL
+             
+             // [manager GET:[NSString stringWithFormat:@"http://localhost:8888/userlogincheck.php?user=%@", user]
+             
+             // NSUserDefaults
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
